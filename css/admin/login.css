@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .signupdiv {
+    width: 100%;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.5) 50%
+      ),
+      url(Background3d.jpg);
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    animation-name: smooth;
+    animation-duration: 1s;
+  }
+  .form1 {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.5) 50%
+    );
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 19vw;
+    padding:2vw;
+  }
+  
+  .form1 h2 {
+    font-family: sans-serif;
+    text-align: center;
+    color: gold;
+    font-size: 22px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 8px;
+  }
+  
+  .form1 input {
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid gold;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: sans-serif;
+  }
+  
+  .form1 input:focus {
+    outline: none;
+  }
+  .btnn {
+    width: 240px;
+    height: 40px;
+    background: gold;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+  }
+  .btnn:hover {
+    background: #fff;
+    color: gold;
+  }
+  .form .link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+  }
+  .form .link a {
+    text-decoration: none;
+    color: gold;
+  }
+  .account {
+    text-decoration: none;
+    color: #fcfaf9;
+  }
+  .signupbtnn {
+    width: 150px;
+    height: 40px;
+    background: gold;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+  }
+  .signupbtnn:hover {
+    background: #fff;
+    color: gold;
+  }
+  
