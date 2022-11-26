@@ -43,6 +43,14 @@ if (isset($_POST["place-order-btn"])) {
             <label class="upload-btn" for="file">
                 Upload File
             </label>
+            <div id="stl_cont" style="
+        width: 35vh;
+        height: 35vh;
+        margin: 0;
+        background: #ebebeb;
+      ">
+
+            </div>
             <p id="fileName"></p>
             <button type="button" onclick="nextPage()">Next</button>
         </div>
@@ -54,6 +62,7 @@ if (isset($_POST["place-order-btn"])) {
         </div>
     </form>
 </body>
+<script src="stl_viewer.min.js"></script>
 <script>
     document.getElementById("screen2").style.display = "none";
     const nextPage = () => {
@@ -70,13 +79,21 @@ if (isset($_POST["place-order-btn"])) {
         document.getElementById("screen2").style.display = "none";
     }
     document.getElementById("fileName").style.display = "none";
-
+    document.getElementById("stl_cont").style.display = "none";
     const handleFile = () => {
+        document.getElementById("stl_cont").style.display = "block";
         const file = document.getElementById("file").files[0];
         if (file) {
             document.getElementById("fileName").style.display = "block";
             document.getElementById("fileName").innerHTML = file.name;
+            const stl_viewer = new StlViewer(document.getElementById("stl_cont"), {
+                singleModel: true,
+            });
+            stl_viewer.add_model({
+                local_file: file
+            });
         }
+
     }
 </script>
 
