@@ -55,10 +55,30 @@ if (isset($_POST["place-order-btn"])) {
             <button type="button" onclick="nextPage()">Next</button>
         </div>
         <div id="screen2">
-            <input name="address" class="address-input" type="text" placeholder="enter address">
-            <input name="payment" class="address-input" value="500" type="number" placeholder="amount">
-            <button type="submit" name="place-order-btn" class="place-order-btn">Place Order</button>
-            <button type="button" onclick="prevPage()">Previous</button>
+            <div>
+                <h2>Billing Address</h2>
+                <input name="address" class="address-input" type="text" placeholder="Full Name">
+                <input name="address" class="address-input" type="text" placeholder="Email">
+                <input name="address" class="address-input" type="text" placeholder="Address">
+                <input name="address" class="address-input" type="text" placeholder="City">
+                <input name="address" class="address-input" type="text" placeholder="State">
+                <input name="address" class="address-input" type="text" placeholder="Pincode">
+            </div>
+
+            <div>
+                <h2>Payment</h2>
+                <input name="address" class="address-input" type="text" placeholder="Name on card">
+                <input name="address" class="address-input" type="text" placeholder="Card no.">
+                <input name="address" class="address-input" type="text" placeholder="CVV">
+                <input name="payment" hidden class="address-input" value="500" type="number" placeholder="amount">
+            </div>
+
+            <div>
+
+                <button type="submit" name="place-order-btn" class="place-order-btn">Place Order</button>
+                <button type="button" onclick="prevPage()">Previous</button>
+                <p>Order Total: 500rs</p>
+            </div>
         </div>
     </form>
 </body>

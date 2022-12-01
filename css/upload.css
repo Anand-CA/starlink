@@ -63,6 +63,20 @@ input[type="file"] {
   flex-direction: column;
 }
 
+#screen2 {
+  flex-direction: row;
+}
+
+#screen2 > div {
+  display: flex;
+  gap: 2vh;
+  flex-direction: column;
+}
+
+#screen2 > div:last-child {
+  margin: 5vh;
+}
+
 .place-order-btn {
   background: yellow;
   border: 1px solid #000;
