@@ -62,7 +62,7 @@ if (isset($_POST["place-order-btn"])) {
         </div>
     </form>
 </body>
-<script src="stl_viewer.min.js"></script>
+<script src="stl_viewer/stl_viewer.min.js"></script>
 <script>
     document.getElementById("screen2").style.display = "none";
     const nextPage = () => {
