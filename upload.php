@@ -5,12 +5,37 @@ include './includes/db.php';
 if (isset($_POST["place-order-btn"])) {
     $name = $_FILES["file"]["name"];
     $tmp_name = $_FILES["file"]["tmp_name"];
-    $address = $_POST["address"];
-    $payment = $_POST["payment"];
     $username = $_SESSION["user_name"];
     $folder = "./uploads/" . $name;
-    // place order
-    $sql = "INSERT INTO orders (address,user,file,payment) VALUES ('$address', '$username', '$folder','$payment')";
+
+    $address = mysqli_real_escape_string($conn, $_POST["address"]);
+    $amount = mysqli_real_escape_string($conn, $_POST["amount"]);
+    $fullname = mysqli_real_escape_string($conn, $_POST["fullname"]);
+    $city = mysqli_real_escape_string($conn, $_POST["city"]);
+    $state = mysqli_real_escape_string($conn, $_POST["state"]);
+    $pincode = mysqli_real_escape_string($conn, $_POST["pincode"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $card_name = mysqli_real_escape_string($conn, $_POST["card_name"]);
+    $card_no = mysqli_real_escape_string($conn, $_POST["card_no"]);
+    $card_cvv = mysqli_real_escape_string($conn, $_POST["card_cvv"]);
+
+    // store details in json
+    $jsondata = array(
+        "address" => $address,
+        "amount" => $amount,
+        "fullname" => $fullname,
+        "city" => $city,
+        "state" => $state,
+        "pincode" => $pincode,
+        "email" => $email,
+        "card_name" => $card_name,
+        "card_no" => $card_no,
+        "card_cvv" => $card_cvv
+    );
+
+    $jsondata = json_encode($jsondata);
+
+    $sql = "INSERT INTO orders (address,user,file,payment) VALUES ('$jsondata', '$username', '$folder','$amount')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         if (move_uploaded_file($tmp_name, $folder)) {
@@ -57,20 +82,20 @@ if (isset($_POST["place-order-btn"])) {
         <div id="screen2">
             <div>
                 <h2>Billing Address</h2>
-                <input name="address" class="address-input" type="text" placeholder="Full Name">
-                <input name="address" class="address-input" type="text" placeholder="Email">
+                <input name="fullname" class="address-input" type="text" placeholder="Full Name">
+                <input name="email" class="address-input" type="text" placeholder="Email">
                 <input name="address" class="address-input" type="text" placeholder="Address">
-                <input name="address" class="address-input" type="text" placeholder="City">
-                <input name="address" class="address-input" type="text" placeholder="State">
-                <input name="address" class="address-input" type="text" placeholder="Pincode">
+                <input name="city" class="address-input" type="text" placeholder="City">
+                <input name="state" class="address-input" type="text" placeholder="State">
+                <input name="pincode" class="address-input" type="text" placeholder="Pincode">
             </div>
 
             <div>
                 <h2>Payment</h2>
-                <input name="address" class="address-input" type="text" placeholder="Name on card">
-                <input name="address" class="address-input" type="text" placeholder="Card no.">
-                <input name="address" class="address-input" type="text" placeholder="CVV">
-                <input name="payment" hidden class="address-input" value="500" type="number" placeholder="amount">
+                <input name="card_name" class="address-input" type="text" placeholder="Name on card">
+                <input name="card_no" class="address-input" type="text" placeholder="Card no.">
+                <input name="cvv" class="address-input" type="text" placeholder="CVV">
+                <input name="amount" hidden class="address-input" value="500" type="number" placeholder="amount">
             </div>
 
             <div>
